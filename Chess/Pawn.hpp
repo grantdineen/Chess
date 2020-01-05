@@ -4,6 +4,9 @@
 
 class Pawn : public Piece
 {
+private:
+	bool hasFirstMoveOccurred;
+
 public:
 	Pawn(bool isWhitePiece, Position const& pos);
 

@@ -8,7 +8,7 @@ int Chess::execute()
 	SetTitle("Chess");
 	ResizeWindow(150, 48);
 	//HideCursor();
-	SetCursorPos(75, 5);
+	SetCursorPos(100, 25);
 
 	Board board;
 	board.InitBoard();
@@ -17,6 +17,8 @@ int Chess::execute()
 	boardView.DrawBoard();
 	boardView.DrawPieces();
 
+	//std::string testInput;
+	//std::cin >> testInput;
 	std::cin.get();
 	return 0;
 }

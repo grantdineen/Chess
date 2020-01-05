@@ -11,13 +11,34 @@ Queen::Queen(bool isWhitePiece, Position const& pos)
 
 bool Queen::CanMoveToLocation(Position const& pos, int board[BOARD_LENGTH][BOARD_LENGTH])
 {
-	//TODO
-	return true;
+	//check if new position is out of bounds
+	if (pos.x > BOARD_LENGTH - 1 || pos.y > BOARD_WIDTH - 1 || pos.x < 0 || pos.y < 0)
+		return false;
+
+	//check that the player doesn't already have a piece in the selected location
+	if (rank > 0)
+	{
+		if (board[pos.x][pos.y] > 0)
+			return false;
+	}
+	else
+	{
+		if (board[pos.x][pos.y] < 0)
+			return false;
+	}
+
+	//check that queen has moved up/down, left/right or diagonal
+	int xDifference = abs(position.x - pos.x);
+	int yDifference = abs(position.y - pos.y);
+	if ((xDifference > 0 && yDifference == 0) || (yDifference > 0 && xDifference == 0) || (xDifference == yDifference))
+		return true;
+
+	return false;
 }
 
 bool Queen::MoveToLocation(Position const& pos)
 {
-	//TODO
+	position = pos;
 	return true;
 }
 

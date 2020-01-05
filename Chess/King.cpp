@@ -1,5 +1,6 @@
 #pragma once
 #include <consolelib.hpp>
+#include <cstdlib>
 #include "King.hpp"
 #include "Common.hpp"
 
@@ -11,14 +12,37 @@ King::King(bool isWhitePiece, Position const& pos)
 
 bool King::CanMoveToLocation(Position const& pos, int board[BOARD_WIDTH][BOARD_LENGTH])
 {
+	//check if new position is out of bounds
+	if (pos.x > BOARD_LENGTH - 1 || pos.y > BOARD_WIDTH - 1 || pos.x < 0 || pos.y < 0)
+		return false;
+
+	//check that the player doesn't already have a piece in the selected location
+	if (rank > 0)
+	{
+		if (board[pos.x][pos.y] > 0)
+			return false;
+	}
+	else
+	{
+		if (board[pos.x][pos.y] < 0)
+			return false;
+	}
+
+	//check that the king is only moving one block away from current position
+	int xDifference = abs(position.x - pos.x);
+	int yDifference = abs(position.y = pos.y);
+	if (xDifference > 1 || yDifference > 1)
+		return true;
 
 	//TODO
-	return true;
+	//Castling ?
+
+	return false;
 }
 
 bool King::MoveToLocation(Position const& pos)
 {
-	//TODO
+	position = pos;
 	return true;
 }
 

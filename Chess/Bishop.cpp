@@ -1,5 +1,6 @@
 #pragma once
 #include <consolelib.hpp>
+#include <cstdlib>
 #include "Bishop.hpp"
 #include "Common.hpp"
 
@@ -11,13 +12,34 @@ Bishop::Bishop(bool isWhitePiece, Position const& pos)
 
 bool Bishop::CanMoveToLocation(Position const& pos, int board[BOARD_WIDTH][BOARD_LENGTH])
 {
-	//TODO
-	return true;
+	//check if new position is out of bounds
+	if (pos.x > BOARD_LENGTH - 1 || pos.y > BOARD_WIDTH - 1 || pos.x < 0 || pos.y < 0)
+		return false;
+
+	//check that the player doesn't already have a piece in the selected location
+	if (rank > 0)
+	{
+		if (board[pos.x][pos.y] > 0)
+			return false;
+	}
+	else
+	{
+		if (board[pos.x][pos.y] < 0)
+			return false;
+	}
+		
+	//check that the new position is diagonal from the current position
+	int xDifference = abs(position.x - pos.x);
+	int yDifference = abs(position.y = pos.y);
+	if (xDifference == yDifference)
+		return true;
+
+	return false;
 }
 
 bool Bishop::MoveToLocation(Position const& pos)
 {
-	//TODO
+	position = pos;
 	return true;
 }
 
