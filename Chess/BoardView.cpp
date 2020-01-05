@@ -20,14 +20,14 @@ void BoardView::DrawBoard()
 			int colour;
 			if (i % 2 == 0)
 				if (j % 2 == 0)
-					colour = Colours::B_WHITE;
+					colour = LIGHT_BOARD_COLOUR;
 				else
-					colour = Colours::B_BLACK;
+					colour = DARK_BOARD_COLOUR;
 			else
 				if (j % 2 == 0)
-					colour = Colours::B_BLACK;
+					colour = DARK_BOARD_COLOUR;
 				else
-					colour = Colours::B_WHITE;
+					colour = LIGHT_BOARD_COLOUR;
 
 			x = posX_ + (j * 12);
 			y = posY_ + (i * 6);

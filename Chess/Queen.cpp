@@ -24,19 +24,19 @@ bool Queen::MoveToLocation(Position const& pos)
 void Queen::DrawPiece()
 {
 	//colour of piece
-	int colour = rank > 0 ? Colours::F_GREEN : Colours::F_RED;
+	int colour = rank > 0 ? WHITE_PIECE_COLOUR : BLACK_PIECE_COLOUR;
 
 	//colour of background
 	if (position.x % 2 == 0)
 		if (position.y % 2 == 0)
-			colour |= Colours::B_WHITE;
+			colour |= LIGHT_BOARD_COLOUR;
 		else
-			colour |= Colours::B_BLACK;
+			colour |= DARK_BOARD_COLOUR;
 	else
 		if (position.y % 2 == 0)
-			colour |= Colours::B_BLACK;
+			colour |= DARK_BOARD_COLOUR;
 		else
-			colour |= Colours::B_WHITE;
+			colour |= LIGHT_BOARD_COLOUR;
 
 	int posX = position.x * 12;
 	int posY = position.y * 6;
