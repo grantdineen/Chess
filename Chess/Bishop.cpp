@@ -9,15 +9,15 @@ Bishop::Bishop(bool isWhitePiece, Position const& pos)
 	position = pos;
 }
 
-bool Bishop::CanMoveToLocation(Position const& pos, int board[][8])
+bool Bishop::CanMoveToLocation(Position const& pos, int board[BOARD_WIDTH][BOARD_LENGTH])
 {
-
+	//TODO
 	return true;
 }
 
 bool Bishop::MoveToLocation(Position const& pos)
 {
-
+	//TODO
 	return true;
 }
 
@@ -38,8 +38,8 @@ void Bishop::DrawPiece()
 		else
 			colour |= LIGHT_BOARD_COLOUR;
 
-	int posX = position.x * 12;
-	int posY = position.y * 6;
+	int posX = position.x * SQUARE_LENGTH;
+	int posY = position.y * SQUARE_WIDTH;
 
 	// ASCII art for pieces by Joan G. Stark at https://www.asciiart.eu/sports-and-outdoors/chess
 	g_Chess.WriteString("            ", posX, posY++, colour);

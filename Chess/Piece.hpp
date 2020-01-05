@@ -1,5 +1,6 @@
 #pragma once
 #include "Position.hpp"
+#include "Common.hpp"
 
 class Piece
 {
@@ -11,7 +12,7 @@ protected:
 	Rank rank;
 
 public:
-	virtual bool CanMoveToLocation(Position const& p, int board[][8]) = 0;
+	virtual bool CanMoveToLocation(Position const& p, int board[BOARD_WIDTH][BOARD_LENGTH]) = 0;
 	virtual bool MoveToLocation(Position const& p) = 0;
 	virtual void DrawPiece() = 0;
 

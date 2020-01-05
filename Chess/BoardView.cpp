@@ -13,9 +13,9 @@ void BoardView::DrawBoard()
 	//x + y coords to draw location
 	int x = posX_;
 	int y = posY_;
-	for (int i = 0; i < 8; i++)
+	for (int i = 0; i < BOARD_WIDTH; i++)
 	{
-		for (int j = 0; j < 8; j++)
+		for (int j = 0; j < BOARD_LENGTH; j++)
 		{
 			int colour;
 			if (i % 2 == 0)
@@ -29,8 +29,8 @@ void BoardView::DrawBoard()
 				else
 					colour = LIGHT_BOARD_COLOUR;
 
-			x = posX_ + (j * 12);
-			y = posY_ + (i * 6);
+			x = posX_ + (j * SQUARE_LENGTH);
+			y = posY_ + (i * SQUARE_WIDTH);
 			g_Chess.WriteString("            ", x, y++, colour);
 			g_Chess.WriteString("            ", x, y++, colour);
 			g_Chess.WriteString("            ", x, y++, colour);

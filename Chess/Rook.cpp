@@ -9,9 +9,9 @@ Rook::Rook(bool isWhitePiece, Position const& pos)
 	position = pos;
 }
 
-bool Rook::CanMoveToLocation(Position const& pos, int board[][8])
+bool Rook::CanMoveToLocation(Position const& pos, int board[BOARD_WIDTH][BOARD_LENGTH])
 {
-
+	//TODO
 	return true;
 }
 
@@ -38,8 +38,8 @@ void Rook::DrawPiece()
 		else
 			colour |= LIGHT_BOARD_COLOUR;
 
-	int posX = position.x * 12;
-	int posY = position.y * 6;
+	int posX = position.x * SQUARE_LENGTH;
+	int posY = position.y * SQUARE_WIDTH;
 
 	// ASCII art for pieces by Joan G. Stark at https://www.asciiart.eu/sports-and-outdoors/chess
 	g_Chess.WriteString("            ", posX, posY++, colour);
