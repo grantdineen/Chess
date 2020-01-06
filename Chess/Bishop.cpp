@@ -6,8 +6,8 @@
 
 Bishop::Bishop(bool isWhitePiece, Position const& pos)
 {
-	rank = isWhitePiece ? Rank::WHITE_BISHOP : Rank::BLACK_BISHOP;
-	position = pos;
+	rank_ = isWhitePiece ? Rank::WHITE_BISHOP : Rank::BLACK_BISHOP;
+	position_ = pos;
 }
 
 bool Bishop::CanMoveToLocation(Position const& pos, int board[BOARD_WIDTH][BOARD_LENGTH])
@@ -17,7 +17,7 @@ bool Bishop::CanMoveToLocation(Position const& pos, int board[BOARD_WIDTH][BOARD
 		return false;
 
 	//check that the player doesn't already have a piece in the selected location
-	if (rank > 0)
+	if (rank_ > 0)
 	{
 		if (board[pos.x][pos.y] > 0)
 			return false;
@@ -29,8 +29,8 @@ bool Bishop::CanMoveToLocation(Position const& pos, int board[BOARD_WIDTH][BOARD
 	}
 		
 	//check that the new position is diagonal from the current position
-	int xDifference = abs(position.x - pos.x);
-	int yDifference = abs(position.y = pos.y);
+	int xDifference = abs(position_.x - pos.x);
+	int yDifference = abs(position_.y = pos.y);
 	if (xDifference == yDifference)
 		return true;
 
@@ -39,29 +39,29 @@ bool Bishop::CanMoveToLocation(Position const& pos, int board[BOARD_WIDTH][BOARD
 
 bool Bishop::MoveToLocation(Position const& pos)
 {
-	position = pos;
+	position_ = pos;
 	return true;
 }
 
-void Bishop::DrawPiece()
+void Bishop::DrawPiece(int x, int y)
 {
 	//colour of piece
-	int colour = rank > 0 ? WHITE_PIECE_COLOUR : BLACK_PIECE_COLOUR;
+	int colour = rank_ > 0 ? WHITE_PIECE_COLOUR : BLACK_PIECE_COLOUR;
 
 	//colour of background
-	if (position.x % 2 == 0)
-		if (position.y % 2 == 0)
+	if (position_.x % 2 == 0)
+		if (position_.y % 2 == 0)
 			colour |= LIGHT_BOARD_COLOUR;
 		else
 			colour |= DARK_BOARD_COLOUR;
 	else
-		if (position.y % 2 == 0)
+		if (position_.y % 2 == 0)
 			colour |= DARK_BOARD_COLOUR;
 		else
 			colour |= LIGHT_BOARD_COLOUR;
 
-	int posX = position.x * SQUARE_LENGTH;
-	int posY = position.y * SQUARE_WIDTH;
+	int posX = x + (position_.x * SQUARE_LENGTH);
+	int posY = y + (position_.y * SQUARE_WIDTH);
 
 	// ASCII art for pieces by Joan G. Stark at https://www.asciiart.eu/sports-and-outdoors/chess
 	g_Chess.WriteString("            ", posX, posY++, colour);

@@ -8,7 +8,7 @@
 class BoardView : public View
 {
 private:
-	Board& board;
+	Board& board_;
 
 public:
 	BoardView(Board& b, int x, int y);

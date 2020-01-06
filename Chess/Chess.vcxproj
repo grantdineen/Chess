@@ -154,9 +154,11 @@
     <ClCompile Include="Bishop.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="BoardView.cpp" />
+    <ClCompile Include="CommandParser.cpp" />
     <ClCompile Include="King.cpp" />
     <ClCompile Include="Knight.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MovePieceCommand.cpp" />
     <ClCompile Include="Pawn.cpp" />
     <ClCompile Include="Queen.cpp" />
     <ClCompile Include="Rook.cpp" />
@@ -166,9 +168,12 @@
     <ClInclude Include="Board.hpp" />
     <ClInclude Include="BoardView.hpp" />
     <ClInclude Include="Chess.hpp" />
+    <ClInclude Include="Command.hpp" />
+    <ClInclude Include="CommandParser.hpp" />
     <ClInclude Include="Common.hpp" />
     <ClInclude Include="King.hpp" />
     <ClInclude Include="Knight.hpp" />
+    <ClInclude Include="MovePieceCommand.hpp" />
     <ClInclude Include="Pawn.hpp" />
     <ClInclude Include="Piece.hpp" />
     <ClInclude Include="Position.hpp" />

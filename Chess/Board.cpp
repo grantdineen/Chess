@@ -56,6 +56,22 @@ void Board::InitBoard()
 		board[p->GetY()][p->GetX()] = p->GetRank();
 }
 
+void Board::attach(Observer* observer)
+{
+	observers_.insert(observer);
+}
+
+void Board::detach(Observer* observer)
+{
+	observers_.erase(observer);
+}
+
+void Board::notify(Event e)
+{
+	for (Observer* p : observers_)
+		p->update(e);
+}
+
 Board::~Board()
 {
 	while (!pieces.empty())

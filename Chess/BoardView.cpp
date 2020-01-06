@@ -2,7 +2,7 @@
 #include "BoardView.hpp"
 #include "Common.hpp"
 
-BoardView::BoardView(Board& b, int x, int y) : board(b)
+BoardView::BoardView(Board& b, int x, int y) : board_(b)
 {
 	posX_ = x;
 	posY_ = y;
@@ -45,8 +45,8 @@ void BoardView::DrawBoard()
 
 void BoardView::DrawPieces()
 {
-	for (Piece* piece : board.pieces)
-		piece->DrawPiece();
+	for (Piece* piece : board_.pieces)
+		piece->DrawPiece(posX_, posY_);
 }
 
 void BoardView::update(Event e)

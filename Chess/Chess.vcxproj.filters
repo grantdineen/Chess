@@ -19,12 +19,21 @@
     <Filter Include="Source Files\Pieces">
       <UniqueIdentifier>{d8b9d478-9c31-4550-a512-b69ed6b28159}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Commands">
+      <UniqueIdentifier>{4fdf88e2-aa7b-478d-aa96-653dbe327d8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Views">
+      <UniqueIdentifier>{6e230e0b-0e2c-4634-a34e-574a08710c08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Views">
+      <UniqueIdentifier>{305dd910-0f82-442d-bd86-21c4ab582e75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands">
+      <UniqueIdentifier>{7d635693-342e-4e44-9f66-ed5c95a81846}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BoardView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Board.cpp">
@@ -48,21 +57,21 @@
     <ClCompile Include="King.cpp">
       <Filter>Source Files\Pieces</Filter>
     </ClCompile>
+    <ClCompile Include="MovePieceCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandParser.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="BoardView.cpp">
+      <Filter>Source Files\Views</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Piece.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Position.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Common.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Chess.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BoardView.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Board.hpp">
@@ -85,6 +94,24 @@
     </ClInclude>
     <ClInclude Include="Pawn.hpp">
       <Filter>Header Files\Pieces</Filter>
+    </ClInclude>
+    <ClInclude Include="Command.hpp">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Piece.hpp">
+      <Filter>Header Files\Pieces</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandParser.hpp">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="BoardView.hpp">
+      <Filter>Header Files\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="Position.hpp">
+      <Filter>Header Files\Pieces</Filter>
+    </ClInclude>
+    <ClInclude Include="MovePieceCommand.hpp">
+      <Filter>Header Files\Commands</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
