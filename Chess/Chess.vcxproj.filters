@@ -60,11 +60,11 @@
     <ClCompile Include="MovePieceCommand.cpp">
       <Filter>Source Files\Commands</Filter>
     </ClCompile>
-    <ClCompile Include="CommandParser.cpp">
-      <Filter>Source Files\Commands</Filter>
-    </ClCompile>
     <ClCompile Include="BoardView.cpp">
       <Filter>Source Files\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandGenerator.cpp">
+      <Filter>Source Files\Commands</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -101,9 +101,6 @@
     <ClInclude Include="Piece.hpp">
       <Filter>Header Files\Pieces</Filter>
     </ClInclude>
-    <ClInclude Include="CommandParser.hpp">
-      <Filter>Header Files\Commands</Filter>
-    </ClInclude>
     <ClInclude Include="BoardView.hpp">
       <Filter>Header Files\Views</Filter>
     </ClInclude>
@@ -111,6 +108,9 @@
       <Filter>Header Files\Pieces</Filter>
     </ClInclude>
     <ClInclude Include="MovePieceCommand.hpp">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandGenerator.hpp">
       <Filter>Header Files\Commands</Filter>
     </ClInclude>
   </ItemGroup>

@@ -51,5 +51,6 @@ void BoardView::DrawPieces()
 
 void BoardView::update(Event e)
 {
-
+	DrawBoard();
+	DrawPieces();
 }

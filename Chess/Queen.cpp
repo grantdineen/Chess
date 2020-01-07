@@ -18,12 +18,12 @@ bool Queen::CanMoveToLocation(Position const& pos, int board[BOARD_WIDTH][BOARD_
 	//check that the player doesn't already have a piece in the selected location
 	if (rank_ > 0)
 	{
-		if (board[pos.x][pos.y] > 0)
+		if (board[pos.y][pos.x] > 0)
 			return false;
 	}
 	else
 	{
-		if (board[pos.x][pos.y] < 0)
+		if (board[pos.y][pos.x] < 0)
 			return false;
 	}
 

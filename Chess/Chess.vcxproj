@@ -154,7 +154,7 @@
     <ClCompile Include="Bishop.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="BoardView.cpp" />
-    <ClCompile Include="CommandParser.cpp" />
+    <ClCompile Include="CommandGenerator.cpp" />
     <ClCompile Include="King.cpp" />
     <ClCompile Include="Knight.cpp" />
     <ClCompile Include="main.cpp" />
@@ -169,7 +169,7 @@
     <ClInclude Include="BoardView.hpp" />
     <ClInclude Include="Chess.hpp" />
     <ClInclude Include="Command.hpp" />
-    <ClInclude Include="CommandParser.hpp" />
+    <ClInclude Include="CommandGenerator.hpp" />
     <ClInclude Include="Common.hpp" />
     <ClInclude Include="King.hpp" />
     <ClInclude Include="Knight.hpp" />

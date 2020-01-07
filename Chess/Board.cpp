@@ -54,6 +54,19 @@ void Board::InitBoard()
 
 	for (Piece* p : pieces)
 		board[p->GetY()][p->GetX()] = p->GetRank();
+
+	isWhitePlayersTurn = true;
+}
+
+Piece* Board::GetPieceAtPosition(Position const& pos)
+{
+	for (Piece* p : pieces)
+	{
+		if (p->GetX() == pos.x && p->GetY() == pos.y)
+			return p;
+	}
+
+	return nullptr;
 }
 
 void Board::attach(Observer* observer)

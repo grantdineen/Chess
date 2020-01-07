@@ -1,7 +1,8 @@
 #include <iostream>
+#include <stack>
 #include "Chess.hpp"
 #include "BoardView.hpp"
-#include "CommandParser.hpp"
+#include "CommandGenerator.hpp"
 
 int Chess::execute() 
 {
@@ -14,26 +15,39 @@ int Chess::execute()
 	board.InitBoard();
 	BoardView boardView(board, 1, 1);
 
+	std::stack<Command*> commands;
+
 	//attach observers
 	board.attach(&boardView);
 
 	boardView.DrawBoard();
 	boardView.DrawPieces();
 
-	std::string testInput;
+	std::string arguments;
+	CommandGenerator commandGenerator(board);
 
 	do {
-		std::getline(std::cin, testInput);
-		CommandParser::ParseCommad(testInput);
-		
-	} while (testInput != "STOP");
+		std::getline(std::cin, arguments);
+		Command* command = commandGenerator.ParseCommand(arguments);
+		if (command != nullptr) 
+		{
+			commands.push(command);
+			command->execute();
+		}
+	} while (arguments != "STOP");
 	//std::cin.get();
+
+	//cleanup commands
+	while (!commands.empty())
+	{
+		delete commands.top();
+		commands.pop();
+	}
 
 	//detach observers
 	board.detach(&boardView);
 
 	return 0;
 }
-
 
 Chess g_Chess;
