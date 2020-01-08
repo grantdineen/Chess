@@ -33,9 +33,9 @@ int Chess::execute()
 		{
 			commands.push(command);
 			command->execute();
+			std::cout << command->ToString() << std::endl;
 		}
 	} while (arguments != "STOP");
-	//std::cin.get();
 
 	//cleanup commands
 	while (!commands.empty())

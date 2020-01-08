@@ -24,8 +24,9 @@ Command* CommandGenerator::ParseCommand(std::string const& arg)
 	{
 		if (std::regex_match(args[0], chessCoordRegex) && args[1] == "->" && std::regex_match(args[2], chessCoordRegex))
 		{
-			Position locationOfPieceToMove = convertChessPosition(args[0]);
-			Position locationOfDestination = convertChessPosition(args[2]);
+			//use the Position constructor that takes a chess coord string
+			Position locationOfPieceToMove(args[0]);
+			Position locationOfDestination(args[2]);
 
 			if (isValidMove(locationOfPieceToMove, locationOfDestination))
 			{
@@ -35,55 +36,6 @@ Command* CommandGenerator::ParseCommand(std::string const& arg)
 	}
 
 	return nullptr;
-}
-
-Position CommandGenerator::convertChessPosition(std::string const& pos)
-{
-	Position position;
-	char letter = pos[0];
-	int number = (int)pos[1] - 48; //conversion of a char to int
-
-	//convert letter to index value
-	switch (letter)
-	{
-	case 'a':
-	case 'A':
-		position.x = 0;
-		break;
-	case 'b':
-	case 'B':
-		position.x = 1;
-		break;
-	case 'c':
-	case 'C':
-		position.x = 2;
-		break;
-	case 'd':
-	case 'D':
-		position.x = 3;
-		break;
-	case 'e':
-	case 'E':
-		position.x = 4;
-		break;
-	case 'f':
-	case 'F':
-		position.x = 5;
-		break;
-	case 'g':
-	case 'G':
-		position.x = 6;
-		break;
-	case 'h':
-	case 'H':
-		position.x = 7;
-		break;
-	}
-
-	//convert the number value (index is backwards from the visual layout)
-	position.y = BOARD_WIDTH - number; // find the complement of the position selected
-
-	return position;
 }
 
 bool CommandGenerator::isValidMove(Position const& origin, Position const& destination)

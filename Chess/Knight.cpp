@@ -71,3 +71,8 @@ void Knight::DrawPiece(int x, int y)
 	g_Chess.WriteString("     )(     ", posX, posY++, colour);
 	g_Chess.WriteString("    /__\\   ", posX, posY++, colour);
 }
+
+std::string Knight::ToString() const
+{
+	return rank_ > 0 ? "White Knight" : "Black Knight";
+}

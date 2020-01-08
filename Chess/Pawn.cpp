@@ -72,3 +72,8 @@ void Pawn::DrawPiece(int x, int y)
 	g_Chess.WriteString("     {}     ", posX, posY++, colour);
 	g_Chess.WriteString("    {__}    ", posX, posY++, colour);
 }
+
+std::string Pawn::ToString() const
+{
+	return rank_ > 0 ? "White Pawn" : "Black Pawn";
+}

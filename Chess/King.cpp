@@ -74,3 +74,8 @@ void King::DrawPiece(int x, int y)
 	g_Chess.WriteString("    { }     ", posX, posY++, colour);
 	g_Chess.WriteString("   {___}    ", posX, posY++, colour);
 }
+
+std::string King::ToString() const
+{
+	return rank_ > 0 ? "White King" : "Black King";
+}

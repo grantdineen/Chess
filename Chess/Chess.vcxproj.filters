@@ -66,6 +66,9 @@
     <ClCompile Include="CommandGenerator.cpp">
       <Filter>Source Files\Commands</Filter>
     </ClCompile>
+    <ClCompile Include="Position.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.hpp">
@@ -104,14 +107,14 @@
     <ClInclude Include="BoardView.hpp">
       <Filter>Header Files\Views</Filter>
     </ClInclude>
-    <ClInclude Include="Position.hpp">
-      <Filter>Header Files\Pieces</Filter>
-    </ClInclude>
     <ClInclude Include="MovePieceCommand.hpp">
       <Filter>Header Files\Commands</Filter>
     </ClInclude>
     <ClInclude Include="CommandGenerator.hpp">
       <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Position.hpp">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 #include "Command.hpp"
 #include "Board.hpp"
 #include "Position.hpp"
@@ -18,4 +19,5 @@ public:
 
 	void execute() override;
 	void undo() override;
+	std::string ToString() const override;
 };

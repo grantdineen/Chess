@@ -32,6 +32,14 @@ void MovePieceCommand::undo()
 	pieceCaptured_ = nullptr;
 }
 
+std::string MovePieceCommand::ToString() const
+{
+	if (wasPieceCaptured_)
+		return pieceMoved_->ToString() + " captured " + pieceCaptured_->ToString() + " at " + destination_.ToString();
+
+	return pieceMoved_->ToString() + " moved from " + origin_.ToString() + " to " + destination_.ToString();
+}
+
 MovePieceCommand::~MovePieceCommand()
 {
 	if (pieceCaptured_ != nullptr)

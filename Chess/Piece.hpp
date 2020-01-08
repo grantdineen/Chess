@@ -1,6 +1,7 @@
 #pragma once
 #include "Position.hpp"
 #include "Common.hpp"
+#include <string>
 
 class Piece
 {
@@ -19,4 +20,5 @@ public:
 	virtual int GetX() const { return position_.x; }
 	virtual int GetY() const { return position_.y; }
 	virtual int GetRank() const { return (int)rank_; }
+	virtual std::string ToString() const { return "Peice"; }
 };
