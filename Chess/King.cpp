@@ -30,7 +30,7 @@ bool King::CanMoveToLocation(Position const& pos, int board[BOARD_WIDTH][BOARD_L
 
 	//check that the king is only moving one block away from current position
 	int xDifference = abs(position_.x - pos.x);
-	int yDifference = abs(position_.y = pos.y);
+	int yDifference = abs(position_.y - pos.y);
 	if (xDifference > 1 || yDifference > 1)
 		return true;
 

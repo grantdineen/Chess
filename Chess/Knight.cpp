@@ -30,7 +30,7 @@ bool Knight::CanMoveToLocation(Position const& pos, int board[BOARD_WIDTH][BOARD
 
 	//check that knight is only trying to move to valid space
 	int xDifference = abs(position_.x - pos.x);
-	int yDifference = abs(position_.y = pos.y);
+	int yDifference = abs(position_.y - pos.y);
 	if ((xDifference == 1 && yDifference == 2) || (xDifference == 2 && yDifference == 1))
 		return true;
 

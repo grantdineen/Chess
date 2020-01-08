@@ -1,5 +1,5 @@
 #pragma once
-#include <vector>
+#include <list>
 #include <Observable.hpp>
 #include <Event.hpp>
 #include "Piece.hpp"
@@ -9,7 +9,7 @@
 class Board : public Observable
 {
 public:
-	std::vector<Piece*> pieces;
+	std::list<Piece*> pieces;
 	bool isWhitePlayersTurn;
 	int board[BOARD_WIDTH][BOARD_LENGTH];
 

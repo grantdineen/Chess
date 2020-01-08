@@ -89,7 +89,7 @@ Board::~Board()
 {
 	while (!pieces.empty())
 	{
-		delete pieces.at(pieces.size() - 1);
+		delete pieces.back();
 		pieces.pop_back();
 	}
 }

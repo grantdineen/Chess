@@ -12,7 +12,7 @@ void MovePieceCommand::execute()
 	//TODO remove the cpatured piece if there is one
 	if (pieceCaptured_ != nullptr)
 	{
-
+		board_.pieces.remove(pieceCaptured_);
 	}
 
 	//move piece
@@ -26,10 +26,14 @@ void MovePieceCommand::execute()
 
 void MovePieceCommand::undo()
 {
+	//TODO undo behaviour
 
+	//lastly, set the pointer back to null so we don't delete the piece twice
+	pieceCaptured_ = nullptr;
 }
 
 MovePieceCommand::~MovePieceCommand()
 {
-
+	if (pieceCaptured_ != nullptr)
+		delete pieceCaptured_;
 }
