@@ -69,6 +69,15 @@
     <ClCompile Include="Position.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="InputView.cpp">
+      <Filter>Source Files\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="StatsView.cpp">
+      <Filter>Source Files\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="ObservableCommands.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.hpp">
@@ -115,6 +124,15 @@
     </ClInclude>
     <ClInclude Include="Position.hpp">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InputView.hpp">
+      <Filter>Header Files\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="StatsView.hpp">
+      <Filter>Header Files\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="ObservableCommands.hpp">
+      <Filter>Header Files\Commands</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

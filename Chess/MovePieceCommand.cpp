@@ -18,10 +18,12 @@ void MovePieceCommand::execute()
 	//move piece
 	pieceMoved_->MoveToLocation(destination_);
 	board_.board[destination_.y][destination_.x] = pieceMoved_->GetRank();
-	board_.notify(Event::INPUT_VIEW);
 
 	//change players turn
 	board_.isWhitePlayersTurn = !board_.isWhitePlayersTurn;
+
+	//notify observers of change
+	board_.notify(Event::INPUT_VIEW);
 }
 
 void MovePieceCommand::undo()

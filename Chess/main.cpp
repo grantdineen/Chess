@@ -2,6 +2,9 @@
 #include <stack>
 #include "Chess.hpp"
 #include "BoardView.hpp"
+#include "InputView.hpp"
+#include "StatsView.hpp"
+#include "ObservableCommands.hpp"
 #include "CommandGenerator.hpp"
 
 int Chess::execute() 
@@ -11,14 +14,19 @@ int Chess::execute()
 	//HideCursor();
 	SetCursorPos(100, 25);
 
+	ObservableCommands commands;
 	Board board;
 	board.InitBoard();
 	BoardView boardView(board, 1, 1);
+	StatsView statsView(board, commands, 97, 1, 53, 15);
+	InputView inputView(97, 16, 53, 15);
 
-	std::stack<Command*> commands;
 
 	//attach observers
 	board.attach(&boardView);
+	board.attach(&statsView);
+
+	commands.attach(&statsView);
 
 	boardView.DrawBoard();
 	boardView.DrawPieces();
@@ -31,21 +39,20 @@ int Chess::execute()
 		Command* command = commandGenerator.ParseCommand(arguments);
 		if (command != nullptr) 
 		{
-			commands.push(command);
+			commands.Push(command);
 			command->execute();
-			std::cout << command->ToString() << std::endl;
+			
 		}
+		inputView.update(Event::INPUT_VIEW);
 	} while (arguments != "STOP");
 
 	//cleanup commands
-	while (!commands.empty())
-	{
-		delete commands.top();
-		commands.pop();
-	}
+	commands.Clear();
 
 	//detach observers
 	board.detach(&boardView);
+	board.detach(&statsView);
+	commands.detach(&statsView);
 
 	return 0;
 }

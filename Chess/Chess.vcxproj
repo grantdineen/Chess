@@ -155,14 +155,17 @@
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="BoardView.cpp" />
     <ClCompile Include="CommandGenerator.cpp" />
+    <ClCompile Include="InputView.cpp" />
     <ClCompile Include="King.cpp" />
     <ClCompile Include="Knight.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MovePieceCommand.cpp" />
+    <ClCompile Include="ObservableCommands.cpp" />
     <ClCompile Include="Pawn.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="Queen.cpp" />
     <ClCompile Include="Rook.cpp" />
+    <ClCompile Include="StatsView.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bishop.hpp" />
@@ -172,14 +175,17 @@
     <ClInclude Include="Command.hpp" />
     <ClInclude Include="CommandGenerator.hpp" />
     <ClInclude Include="Common.hpp" />
+    <ClInclude Include="InputView.hpp" />
     <ClInclude Include="King.hpp" />
     <ClInclude Include="Knight.hpp" />
     <ClInclude Include="MovePieceCommand.hpp" />
+    <ClInclude Include="ObservableCommands.hpp" />
     <ClInclude Include="Pawn.hpp" />
     <ClInclude Include="Piece.hpp" />
     <ClInclude Include="Position.hpp" />
     <ClInclude Include="Queen.hpp" />
     <ClInclude Include="Rook.hpp" />
+    <ClInclude Include="StatsView.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
