@@ -12,6 +12,8 @@ Rook::Rook(bool isWhitePiece, Position const& pos)
 
 bool Rook::CanMoveToLocation(Position const& pos, int board[BOARD_WIDTH][BOARD_LENGTH])
 {
+	bool isValidMove = false;
+
 	//check if new position is out of bounds
 	if (pos.x > BOARD_LENGTH - 1 || pos.y > BOARD_WIDTH - 1 || pos.x < 0 || pos.y < 0)
 		return false;
@@ -32,9 +34,13 @@ bool Rook::CanMoveToLocation(Position const& pos, int board[BOARD_WIDTH][BOARD_L
 	int xDifference = abs(position_.x - pos.x);
 	int yDifference = abs(position_.y - pos.y);
 	if ( (xDifference > 0 && yDifference == 0) || (yDifference > 0 && xDifference == 0) )
-		return true;
-	
-	return false;
+		isValidMove = true;
+
+	//check no pieces are blocking path
+	if (isValidMove && IsPieceBlockingPath(pos, board))
+		isValidMove = false;
+
+	return isValidMove;
 }
 
 bool Rook::MoveToLocation(Position const& pos)

@@ -21,4 +21,7 @@ public:
 	virtual int GetY() const { return position_.y; }
 	virtual int GetRank() const { return (int)rank_; }
 	virtual std::string ToString() const { return "Peice"; }
+
+protected:
+	virtual bool IsPieceBlockingPath(Position const& p, int board[BOARD_WIDTH][BOARD_LENGTH]);
 };

@@ -31,10 +31,14 @@ bool Bishop::CanMoveToLocation(Position const& pos, int board[BOARD_WIDTH][BOARD
 	//check that the new position is diagonal from the current position
 	int xDifference = abs(position_.x - pos.x);
 	int yDifference = abs(position_.y - pos.y);
-	if (xDifference == yDifference)
-		return true;
+	if (xDifference != yDifference)
+		return false;
 
-	return false;
+	//check path is clear
+	if (IsPieceBlockingPath(pos, board))
+		return false;
+
+	return true;
 }
 
 bool Bishop::MoveToLocation(Position const& pos)

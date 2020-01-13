@@ -162,6 +162,7 @@
     <ClCompile Include="MovePieceCommand.cpp" />
     <ClCompile Include="ObservableCommands.cpp" />
     <ClCompile Include="Pawn.cpp" />
+    <ClCompile Include="Piece.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="Queen.cpp" />
     <ClCompile Include="Rook.cpp" />

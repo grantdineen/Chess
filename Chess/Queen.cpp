@@ -11,6 +11,8 @@ Queen::Queen(bool isWhitePiece, Position const& pos)
 
 bool Queen::CanMoveToLocation(Position const& pos, int board[BOARD_WIDTH][BOARD_LENGTH])
 {
+	bool isValidMove = false;
+
 	//check if new position is out of bounds
 	if (pos.x > BOARD_LENGTH - 1 || pos.y > BOARD_WIDTH - 1 || pos.x < 0 || pos.y < 0)
 		return false;
@@ -31,9 +33,13 @@ bool Queen::CanMoveToLocation(Position const& pos, int board[BOARD_WIDTH][BOARD_
 	int xDifference = abs(position_.x - pos.x);
 	int yDifference = abs(position_.y - pos.y);
 	if ((xDifference > 0 && yDifference == 0) || (yDifference > 0 && xDifference == 0) || (xDifference == yDifference))
-		return true;
+		isValidMove = true;
 
-	return false;
+	//check no piece is blocking path
+	if (isValidMove && IsPieceBlockingPath(pos, board))
+		isValidMove = false;
+
+	return isValidMove;
 }
 
 bool Queen::MoveToLocation(Position const& pos)

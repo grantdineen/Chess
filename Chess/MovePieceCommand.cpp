@@ -19,6 +19,9 @@ void MovePieceCommand::execute()
 	pieceMoved_->MoveToLocation(destination_);
 	board_.board[destination_.y][destination_.x] = pieceMoved_->GetRank();
 
+	//set the preivous position back to empty
+	board_.board[origin_.y][origin_.x] = 0;
+
 	//change players turn
 	board_.isWhitePlayersTurn = !board_.isWhitePlayersTurn;
 
