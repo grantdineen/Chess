@@ -17,19 +17,27 @@ bool Pawn::CanMoveToLocation(Position const& pos, int board[BOARD_WIDTH][BOARD_L
 	if (pos.x > BOARD_LENGTH - 1 || pos.y > BOARD_WIDTH - 1 || pos.x < 0 || pos.y < 0)
 		return false;
 
-	//check there isn't a piece in front of the pawn
-	if (board[pos.y][pos.x] != 0)
-		return false;
+	//check that the player doesn't already have a piece in the selected location
+	if (rank_ > 0)
+	{
+		if (board[pos.y][pos.x] > 0)
+			return false;
+	}
+	else
+	{
+		if (board[pos.y][pos.x] < 0)
+			return false;
+	}
 
 	int oneForward = rank_ > 0 ? -1 : 1;
 	
 	int xDifference = abs(position_.x - pos.x);
-	int yDifference = (position_.y - pos.y);
+	int yDifference = abs(position_.y - pos.y);
 	bool isValidMove = false;
 
 	if (xDifference == 0 && pos.y == position_.y + oneForward) // pawn is trying to move one space forward
 		isValidMove = true;
-	else if (xDifference == 1 && yDifference == 1 && rank_ > 0 && pos.y == position_.y + oneForward && (board[pos.y][pos.x] ^ rank_) < 0) //check if the pawn is trying to capture enemy one diagonal to them
+	else if (xDifference == 1 && yDifference == 1 && pos.y == position_.y + oneForward && (board[pos.y][pos.x] ^ rank_) < 0) //check if the pawn is trying to capture enemy one diagonal to them
 		isValidMove = true;
 	else if (!hasFirstMoveOccurred_ && xDifference == 0 && pos.y == position_.y + (oneForward * 2)) //allow pawn to move +2 sqaures if it's their first move
 		isValidMove = true;
