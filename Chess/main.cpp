@@ -10,16 +10,16 @@
 int Chess::execute() 
 {
 	SetTitle("Chess");
-	ResizeWindow(150, 50);
+	ResizeWindow(150, 55);
 	//HideCursor();
 	SetCursorPos(100, 25);
 
 	ObservableCommands commands;
 	Board board;
 	board.InitBoard();
-	BoardView boardView(board, 1, 1);
-	StatsView statsView(board, commands, 97, 1, 53, 15);
-	InputView inputView(97, 16, 53, 15);
+	BoardView boardView(board, 0, 0);
+	StatsView statsView(board, commands, 100, 1, 50, 13);
+	InputView inputView(100, 16, 50, 13);
 
 
 	//attach observers
@@ -28,6 +28,7 @@ int Chess::execute()
 
 	commands.attach(&statsView);
 
+	boardView.DrawBorder();
 	boardView.DrawBoard();
 	boardView.DrawPieces();
 
